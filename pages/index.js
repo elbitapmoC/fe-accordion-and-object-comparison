@@ -4,10 +4,9 @@ import Footer from "../components/Footer";
 import ComparingObjects_Stringify from "../components/ComparingObjects_Stringify";
 import ComparingObjects_For_In from "../components/ComparingObjects_For_In";
 import ComparingObjects_For from "../components/ComparingObjects_For";
+import Accordion from "../components/Accordion";
 
 export default function Home() {
-  const [count, setCount] = useState(1);
-
   return (
     <div className="p-4">
       <style jsx>{`
@@ -27,9 +26,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="main">
-        <ComparingObjects_Stringify />
+        {/* <ComparingObjects_Stringify /> */}
         {/* <ComparingObjects_For_In /> */}
         {/* <ComparingObjects_For /> */}
+        <Accordion />
       </div>
       <Footer />
     </div>
