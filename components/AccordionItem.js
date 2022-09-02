@@ -31,7 +31,7 @@ const AccordionItem = ({ onToggle, active, data }) => {
       </button>
       <aside
         hidden={active}
-        className="w-full mb-12 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+        className="w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
       >
         <div className="pb-10 pt-10 pl-10 pr-10">
           <p className="rounded-full shadow-lg">{description}</p>
