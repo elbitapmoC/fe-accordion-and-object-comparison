@@ -29,7 +29,8 @@ export default function Home() {
         {/* <ComparingObjects_Stringify /> */}
         {/* <ComparingObjects_For_In /> */}
         {/* <ComparingObjects_For /> */}
-        <Accordion />
+        <Accordion title="Accordion | Single Select" />
+        <Accordion multiselect title="Accordion | Multiselect" />
       </div>
       <Footer />
     </div>

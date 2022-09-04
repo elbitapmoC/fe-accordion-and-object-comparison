@@ -1,6 +1,10 @@
-import { useState } from "react";
-import AccordionItem from "./AccordionItem";
-const Accordion = () => {
+import React, { useState } from "react";
+import AccordionItemSingle from "./AccordionItemSingle";
+import AccordionItemMulti from "./AccordionItemMulti";
+
+const Accordion = ({ title, multiselect = false }) => {
+  const [visibility, setVisibility] = useState();
+  let kindOfAccordion;
   const datas = [
     {
       champion: "Corki",
@@ -36,30 +40,80 @@ const Accordion = () => {
     },
   ];
 
-  const [isHidden, setVisibility] = useState();
+  const datasAlt = [
+    {
+      champion: "Sivir",
+      roles: ["Marksman"],
+      mastery: "5",
+      icon: "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Sivir.png",
+      description:
+        "Sivir is a renowned fortune hunter and mercenary captain who plies her trade in the deserts of Shurima. Armed with her legendary jeweled crossblade, she has fought and won countless battles for those who can afford her exorbitant price. Known for her...",
+    },
+    {
+      champion: "Vayne",
+      roles: ["Marksman", "Assassin"],
+      mastery: "4",
+      icon: "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Vayne.png",
+      description:
+        "Shauna Vayne is a deadly, remorseless Demacian monster hunter, who has dedicated her life to finding and destroying the demon that murdered her family. Armed with a wrist-mounted crossbow and a heart full of vengeance, she is only truly happy when...",
+    },
+    {
+      champion: "Tristana",
+      roles: ["Marksman", "Assassin"],
+      mastery: "3",
+      icon: "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Tristana.png",
+      description:
+        "While many other yordles channel their energy into discovery, invention, or just plain mischief-making, Tristana was always inspired by the adventures of great warriors. She had heard much about Runeterra, its factions, and its wars, and believed her...",
+    },
+    {
+      champion: "Kayle",
+      roles: ["Fighter", "Support"],
+      mastery: "5",
+      icon: "http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Kayle.png",
+      description:
+        "Born to a Targonian Aspect at the height of the Rune Wars, Kayle honored her mother's legacy by fighting for justice on wings of divine flame. She and her twin sister Morgana were the protectors of Demacia for many years—until Kayle became disillusioned...",
+    },
+  ];
 
   const handleToggle = (index) => {
-    if (isHidden === index) {
-      return setVisibility();
+    if (visibility === index) {
+      setVisibility();
+    } else {
+      setVisibility(index);
     }
-    setVisibility(index);
   };
 
+  if (multiselect) {
+    kindOfAccordion = (
+      <>
+        {datas.map((data, idx) => {
+          return <AccordionItemMulti data={data} key={idx} />;
+        })}
+      </>
+    );
+  } else
+    kindOfAccordion = (
+      <>
+        {datasAlt.map((data, idx) => {
+          return (
+            <AccordionItemSingle
+              data={data}
+              key={idx}
+              active={visibility === idx}
+              toggleVisible={() => {
+                handleToggle(idx);
+              }}
+            />
+          );
+        })}
+      </>
+    );
   return (
     <>
-      <h1 className="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        Accordion
+      <h1 className="mt-12 mb-12 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        {title}
       </h1>
-      {datas.map((data, index) => {
-        return (
-          <AccordionItem
-            onToggle={() => handleToggle(index)}
-            active={!(isHidden === index)}
-            data={data}
-            key={index}
-          />
-        );
-      })}
+      {kindOfAccordion}
     </>
   );
 };
