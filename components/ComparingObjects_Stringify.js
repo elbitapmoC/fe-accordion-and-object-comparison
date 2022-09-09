@@ -26,7 +26,7 @@ const ComparingObjects_Stringify = () => {
 
   return (
     <>
-      <h1 className="mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <h1 className="mt-24 mb-8 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Comparing Objects | Stringify
       </h1>
       <aside>{JSON.stringify(c1, null, 2)}</aside>

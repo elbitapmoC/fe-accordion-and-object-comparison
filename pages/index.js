@@ -26,11 +26,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="main">
-        {/* <ComparingObjects_Stringify /> */}
-        {/* <ComparingObjects_For_In /> */}
-        {/* <ComparingObjects_For /> */}
-        <Accordion title="Accordion | Single Select" />
         <Accordion multiselect title="Accordion | Multiselect" />
+        <Accordion title="Accordion | Single Select" />
+        <ComparingObjects_Stringify />
+        <ComparingObjects_For_In />
+        {/* <ComparingObjects_For /> */}
       </div>
       <Footer />
     </div>
