@@ -30,7 +30,7 @@ export default function Home() {
         <Accordion title="Accordion | Single Select" />
         <ComparingObjects_Stringify />
         <ComparingObjects_For_In />
-        {/* <ComparingObjects_For /> */}
+        <ComparingObjects_For />
       </div>
       <Footer />
     </div>
