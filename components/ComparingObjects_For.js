@@ -16,25 +16,20 @@ const ComparingObjects_For = () => {
   };
 
   const compareObjects = (a, b) => {
-    let objA = Object.getOwnPropertyNames(a);
-    let objB = Object.getOwnPropertyNames(b);
+    const objA = Object.getOwnPropertyNames(a);
+    const objB = Object.getOwnPropertyNames(b);
 
-    if (objA.length !== objB.length) {
-      return false;
-    }
-
+    if (objA.length !== objB.length) return false;
     for (let i = 0; i < objA.length; i++) {
       let propName = objA[i];
-      if (a[propName] !== b[propName]) {
-        return false;
-      }
+      if (a[propName] !== b[propName]) return false;
     }
     return true;
   };
 
   useEffect(() => {
     setIsEqual(compareObjects(jangoFett, bobaFett));
-  }, []);
+  });
 
   return (
     <>
@@ -43,7 +38,7 @@ const ComparingObjects_For = () => {
       </h1>
       <aside>{JSON.stringify(jangoFett, null, 2)}</aside>
       <aside>{JSON.stringify(bobaFett, null, 2)}</aside>
-      <p className="mt-4">Result: {isEqual.toString()}</p>
+      <p className="mt-4"> Result: {isEqual.toString()}</p>
     </>
   );
 };
